@@ -1,0 +1,33 @@
+import { Controls, Canvas, Meta } from "@storybook/blocks";
+import * as AccordionStories from "./Accordion.stories";
+
+<Meta of={AccordionStories} name="Accordion" />
+
+# Accordion
+
+## How to use
+
+To use the `Accordion` component import it like that:
+
+```tsx
+import { Accordion, CollapseCard } from "@axa-fr/design-system-react/agent";
+
+const AccordionCollapse = () => (
+  <Accordion>
+    <CollapseCard>
+      <CollapseCard.Header>CollpaseCard #1 Title</CollapseCard.Header>
+      <CollapseCard.Body>Your Body Text #1</CollapseCard.Body>
+    </CollapseCard>
+    <CollapseCard>
+      <CollapseCard.Header>CollpaseCard #2 Title</CollapseCard.Header>
+      <CollapseCard.Body>Your Body Text #2</CollapseCard.Body>
+    </CollapseCard>
+    <CollapseCard>
+      <CollapseCard.Header>CollpaseCard #3 Title</CollapseCard.Header>
+      <CollapseCard.Body>Your Body Text #3</CollapseCard.Body>
+    </CollapseCard>
+  </Accordion>
+);
+```
+
+<Canvas of={AccordionStories.AccordionStory} />

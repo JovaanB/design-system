@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import * as Icons from "@mui/icons-material";
+import * as Icons from "./Icon.client";
 import "./Icon.client.stories.css";
 
 const meta: Meta = {
@@ -16,13 +16,14 @@ export const Example: StoryObj = {
 
 export const AllIcons: StoryObj = {
   render: () => {
+    const obj = Object.keys(Icons);
     return (
       <ul className="icon-list">
-        {Object.values(Icons).map((Comp: Icons.SvgIconComponent) => {
+        {Object.values(Icons).map((Comp: Icons.SvgIconComponent, idx) => {
           return (
             <li key={Comp.muiName}>
               <Comp />
-              <span>key</span>
+              <span>{obj.at(idx)}</span>
             </li>
           );
         })}

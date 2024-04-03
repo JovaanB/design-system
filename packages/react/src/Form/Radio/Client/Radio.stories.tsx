@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ComponentPropsWithRef } from "react";
-import HomeIcon from "@mui/icons-material/Home";
-import FlagIcon from "@mui/icons-material/Flag";
 import { Radio, RadioModes } from "./Radio";
+import { Flag, Home } from "../../../Icons/Icon.client";
 
 const meta: Meta<typeof Radio> = {
   component: Radio,
@@ -12,53 +11,50 @@ const meta: Meta<typeof Radio> = {
 
 export default meta;
 
-type RadioProps = Omit<ComponentPropsWithRef<typeof Radio>, "classModifier"> & {
-  classModifier?: string[];
-};
-export const RadioStory: StoryObj<RadioProps> = {
+export const RadioStory: StoryObj<ComponentPropsWithRef<typeof Radio>> = {
   name: "Radio",
-  render: ({ classModifier, ...args }) => (
-    <Radio classModifier={classModifier?.join(" ")} {...args} />
-  ),
+  render: ({ ...args }) => <Radio {...args} />,
   args: {
+    value: "lille",
     mode: RadioModes.inline,
-    value: "",
-    classModifier: [],
-    isChecked: false,
-    readOnly: false,
     disabled: false,
+    erroneous: false,
     name: "placeName",
     options: [
       {
-        icon: <FlagIcon />,
-        label: "Paris",
+        icon: <Flag fill="#00008F" />,
+        title: "Paris",
         description: "Capitale de la France",
+        subtitle: "Île-de-France",
         value: "paris",
       },
-      { icon: <HomeIcon />, label: "Lille", value: "lille" },
       {
-        label: "Madrid",
+        icon: <Home fill="#00008F" />,
+        title: "Lille",
+        value: "lille",
+      },
+      {
+        title: "Madrid",
         description: "Capitale de l'Espagne",
         value: "madrid",
+      },
+      {
+        title: "Berlin",
+        value: "berlin",
       },
     ],
   },
   argTypes: {
-    onChange: { action: "onChange" },
     mode: {
       options: [RadioModes.classic, RadioModes.default, RadioModes.inline],
       control: { type: "inline-radio" },
     },
     value: {
-      options: ["empty", "paris", "lille", "madrid"],
+      options: ["empty", "paris", "lille", "madrid", "berlin"],
       mapping: {
         empty: "",
       },
       control: { type: "inline-radio" },
-    },
-    classModifier: {
-      options: ["disabled", "required"],
-      control: { type: "inline-check" },
     },
   },
 };

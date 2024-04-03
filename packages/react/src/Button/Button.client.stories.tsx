@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import Code from "@mui/icons-material/Code";
-import FireExtinguisher from "@mui/icons-material/FireExtinguisher";
-import Biotech from "@mui/icons-material/Biotech";
-import HeartBroken from "@mui/icons-material/HeartBroken";
-import AccountBalance from "@mui/icons-material/AccountBalance";
 import { ReactNode } from "react";
 import { ButtonClient, Variants } from "./Button.client";
+import {
+  AccountBalance,
+  ArrowBack,
+  Biotech,
+  Code,
+  FireExtinguisher,
+  HeartBroken,
+} from "../Icons/Icon.client";
 
 const meta: Meta<typeof ButtonClient> = {
   component: ButtonClient,
@@ -147,23 +149,29 @@ export const MultiExamples: StoryObj<typeof ButtonClient> = {
           Button Tertiary Disabled
         </ButtonClient>
         <ButtonClient variant={Variants.ghost}>Button Ghost</ButtonClient>
-        <ButtonClient iconRight={<ArrowBack />}>test</ButtonClient>
-        <ButtonClient variant={Variants.secondary} iconRight={<Code />}>
+        <ButtonClient iconRight={<ArrowBack fill="white" />}>test</ButtonClient>
+        <ButtonClient
+          variant={Variants.secondary}
+          iconRight={<Code fill="#00008F" />}
+        >
           With icon
         </ButtonClient>
         <ButtonClient
           variant={Variants.tertiary}
-          iconLeft={<FireExtinguisher />}
+          iconLeft={<FireExtinguisher fill="#00008F" />}
         >
           With icon
         </ButtonClient>
-        <ButtonClient variant={Variants.business} iconRight={<Biotech />}>
+        <ButtonClient
+          variant={Variants.business}
+          iconRight={<Biotech fill="white" />}
+        >
           With icon
         </ButtonClient>
         <ButtonClient
           variant={Variants.ghost}
-          iconLeft={<AccountBalance />}
-          iconRight={<HeartBroken />}
+          iconLeft={<AccountBalance fill="#00008F" />}
+          iconRight={<HeartBroken fill="#00008F" />}
         >
           With icon MULTI
         </ButtonClient>

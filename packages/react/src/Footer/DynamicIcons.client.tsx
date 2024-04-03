@@ -1,7 +1,4 @@
-import IconFacebook from "@mui/icons-material/Facebook";
-import IconTwitterX from "@mui/icons-material/X";
-import IconYoutube from "@mui/icons-material/YouTube";
-import IconLinkedIn from "@mui/icons-material/LinkedIn";
+import { Facebook, X, YouTube, LinkedIn } from "../Icons/Icon.client";
 
 export const DynamicIcon = ({
   iconName,
@@ -12,13 +9,13 @@ export const DynamicIcon = ({
 }) => {
   switch (iconName) {
     case "facebook":
-      return <IconFacebook className={className} />;
+      return <Facebook className={className} />;
     case "twitter":
-      return <IconTwitterX className={className} />;
+      return <X className={className} />;
     case "youtube":
-      return <IconYoutube className={className} />;
+      return <YouTube className={className} />;
     case "linkedin":
-      return <IconLinkedIn className={className} />;
+      return <LinkedIn className={className} />;
     default:
       return iconName;
   }

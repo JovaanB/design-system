@@ -1,16 +1,17 @@
 import { FC, useCallback, useState } from "react";
 import "@axa-fr/design-system-css/dist/common/reboot.scss";
 import "@axa-fr/design-system-css/dist/Footer/Footer.client.scss";
-import ExpandMore from "@mui/icons-material/ExpandMore";
 import classNames from "classnames";
 import { MenuIcons, SocialMedia } from "./MenuIcons.client";
 import { Link, MenuLink } from "./MenuLink.client";
+import { ExpandMore } from "../Icons/Icon.client";
 
 type Props = {
   links: Link[];
   socialMedias?: SocialMedia[];
   copyright: string;
   expandLinkText: string;
+  id?: string;
 };
 
 export const Footer: FC<Props> = ({
@@ -18,13 +19,14 @@ export const Footer: FC<Props> = ({
   socialMedias = [],
   copyright,
   expandLinkText,
+  id,
 }) => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const handleClick = useCallback(() => {
     setIsAboutOpen((isOpen) => !isOpen);
   }, []);
   return (
-    <footer className="af-footer">
+    <footer id={id} className="af-footer">
       <div className="af-footer__footerTop">
         <nav className="af-footer__menuTop" aria-label={expandLinkText}>
           <button
